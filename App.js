@@ -12,9 +12,13 @@ import logo from "./assets/logo.png";
 import * as ImagePicker from "expo-image-picker";
 import * as Sharing from "expo-sharing";
 import * as ImageManipulator from "expo-image-manipulator";
+import * as SplashScreen from "expo-splash-screen";
 
 export default function App() {
 	const [selectedImage, setSelectedImage] = React.useState(null);
+
+	SplashScreen.preventAutoHideAsync();
+	setTimeout(SplashScreen.hideAsync, 1000);
 
 	let openImagePickerAsync = async () => {
 		let pickerResult = await ImagePicker.launchImageLibraryAsync();
